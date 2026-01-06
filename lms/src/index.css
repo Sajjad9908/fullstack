@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+@theme {
+  --text-home-heading-small: 26px;
+  --leading-home-heading-small: 36px;
+
+  --text-home-heading-large: 48px;
+  --leading-home-heading-large: 56px;
+}
+@layer utilities {
+  .h-section-height {
+    height: 500px;
+  }
+}
+*{
+  font-family: 'Outfit', sans-serif;
+  
+}
