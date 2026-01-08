@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import App from "../App";
 import { dummyCourses } from "../assets/assets/assets";
 import humanizeDuration from "humanize-duration";
+import { useAuth,useUser } from "@clerk/clerk-react";
 
 export const AppContext = createContext();
 const currency=import.meta.env.VITE_CURRENCY;
@@ -78,6 +79,20 @@ useEffect(()=>{
     FetchAllCourses();
     fetchEnrolledCourses();
 },[])
+
+const {getToken}=useAuth();
+const {user}=useUser();
+
+
+const logToken=async()=>{
+console.log(await getToken());
+}
+
+useEffect(()=>{
+    if(user){
+      logToken();
+    }
+},[user])
 
 const value = {
 
